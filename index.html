@@ -8,8 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.45/moment-timezone-with-data-1970-2030.min.js"></script>
   </head>
-  <body>
-    <div class="container">
+  <div class="container">
       <h1>World Clock</h1>
       <select name="" id="">
         <option value="">Select a city</option>
@@ -19,26 +18,29 @@
       </select>
 
       <div id="cities">
-        <div class="city" id="johannesburg">
-          <h2>Johannesburg 🇿🇦</h2>
-          <div class="date"></div>
+        <div class="city-container" id="johannesburg">
+          <div class="city">
+            <h2>Johannesburg 🇿🇦</h2>
+            <div class="date"></div>
+          </div>
+          <div class="time"></div>
         </div>
-        <div class="time"></div>
-      </div>
 
-      <div id="cities">
-        <div class="city" id="singapore">
-          <h2>Singapore 🇸🇬</h2>
-          <div class="date">Friday, 9 August 2024</div>
+        <div class="city-container" id="singapore">
+          <div class="city">
+            <h2>Singapore 🇸🇬</h2>
+            <div class="date">Friday, 9 August 2024</div>
+          </div>
+          <div class="time">00:33:10 <small>AM</small></div>
         </div>
-        <div class="time">00:33:10 <small>AM</small></div>
-      </div>
-      <div id="cities">
-        <div class="city" id="venice">
-          <h2>Venice 🇮🇹</h2>
-          <div class="date">Friday, 9 August 2024</div>
+
+        <div class="city-container" id="venice">
+          <div class="city">
+            <h2>Venice 🇮🇹</h2>
+            <div class="date">Friday, 9 August 2024</div>
+          </div>
+          <div class="time">00:33:10 <small>AM</small></div>
         </div>
-        <div class="time">00:33:10 <small>AM</small></div>
       </div>
     </div>
     <footer>
