@@ -1,5 +1,5 @@
 // Function to update the time
-function updateJohannesburgTime() {
+function updateTime() {
   let johannesburgElement = document.querySelector("#johannesburg");
   if (johannesburgElement) {
     let johannesburgDateElement = johannesburgElement.querySelector(".date");
@@ -11,7 +11,39 @@ function updateJohannesburgTime() {
       "h:mm:ss [<small>]A[</small>]"
     );
   }
-}
 
-updateJohannesburgTime();
-setInterval(updateJohannesburgTime, 1000);
+  let singaporeElement = document.querySelector("#singapore");
+  if (singaporeElement) {
+    let singaporeDateElement = singaporeElement.querySelector(".date");
+    let singaporeTimeElement = singaporeElement.querySelector(".time");
+    let singaporeTime = moment().tz("Asia/Singapore");
+
+    singaporeDateElement.innerHTML = singaporeTime.format("Do MMMM YYYY");
+    singaporeTimeElement.innerHTML = singaporeTime.format(
+      "h:mm:ss [<small>]A[</small>]"
+    );
+  }
+}
+function updateCity(event) {
+  let cityTimeZone = event.target.value;
+  let cityName = cityTimeZone.replace("_", " ").split("/")[1];
+  let cityTime = moment().tz(cityTimeZone);
+  let citiesElement = document.querySelector("#cities");
+  citiesElement.innerHTML = `
+  <div class="city">
+    <div>
+      <h2>${cityName}</h2>
+      <div class="date">${cityTime.format("MMMM	Do YYYY")}</div>
+    </div>
+    <div class="time">${cityTime.format("h:mm:ss")} <small>${cityTime.format(
+    "A"
+  )}</small></div>
+  </div>
+  `;
+}
+updateTime();
+setInterval(updateTime, 1000);
+setInterval(updateCity, 1000);
+
+let citySelectElement = document.querySelector("#city");
+citySelectElement.addEventListener("change", updateCity);
